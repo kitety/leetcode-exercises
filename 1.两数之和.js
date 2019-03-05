@@ -48,21 +48,42 @@
  * @param {number} target
  * @return {number[]}
  */
+// var twoSum = function (nums, target) {
+//     let tempArr = []
+//     let numLen = nums.length
+//     for (let i = 0; i < numLen; i++) {
+//         let j = nums.indexOf(target - nums[i], i + 1)
+//         if (j != -1) {
+//             tempArr = [i, j]
+//         }
+//     }
+//     return tempArr
+// };
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
 var twoSum = function (nums, target) {
     let tempArr = []
     let numLen = nums.length
-    for (let i = 0; i < numLen; i++) {
-        let j = nums.indexOf(target - nums[i], i + 1)
+    let index = 0;
+    while (index < numLen) {
+        let j = nums.indexOf(target - nums[index], index + 1)
         if (j != -1) {
-            tempArr = [i, j]
+            tempArr = [index, j]
+            break
         }
+        index++
     }
     return tempArr
 };
 
 
-// var nums = [3,3];
-// var target = 6;
-// console.log(twoSum(nums, target))
+var nums = [1, 3, 58, 72];
+var target = 73;
+console.log(twoSum(nums, target))
 
 
