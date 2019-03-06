@@ -91,6 +91,7 @@ var romanToInt = function(s) {
     return constNumber[s];
   } else {
     while (s.length > 0) {
+      // 取出后面的两个字符串
       if (constNumber[s.substr(-2)]) {
         temp.unshift(constNumber[s.substr(-2)]);
         s = s.substr(0, s.length - 2);
@@ -101,6 +102,6 @@ var romanToInt = function(s) {
     }
   }
   const reducer = (accumulator, currentValue) =>
-    Number(accumulator) + Number(currentValue);
+    accumulator + currentValue;
   return temp.reduce(reducer);
 };
