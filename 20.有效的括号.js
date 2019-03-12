@@ -57,27 +57,11 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-  let obj = {
-    "(": ")",
-    "[": "]",
-    "{": "}",
-    ")": "(",
-    "]": "[",
-    "}": "{"
-  };
-  let len = s.length;
-  if (len % 2 !== 0) {
-    return false;
+  while (s.indexOf("{}") > -1 || s.indexOf("[]") > -1 || s.indexOf("()") > -1) {
+    s = s.replace("{}", "");
+    s = s.replace("[]", "");
+    s = s.replace("()", "");
   }
-  while (s.length > 0) {
-    if (s[0] === obj[s[s.length - 1]]) {
-      s = s.slice(1, s.length - 1);
-    } else if (s[0] == obj[s[1]]) {
-      s = s.slice(2);
-    } else {
-      return false;
-    }
-  }
-  return true;
+  return s === "";
 };
-console.log(isValid("(([]){})"));
+// console.log(isValid("()"));
