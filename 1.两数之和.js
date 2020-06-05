@@ -61,29 +61,49 @@
 // };
 
 
+// /**
+//  * @param {number[]} nums
+//  * @param {number} target
+//  * @return {number[]}
+//  */
+// var twoSum = function (nums, target) {
+//     let tempArr = []
+//     let numLen = nums.length
+//     let index = 0;
+//     while (index < numLen) {
+//         let j = nums.indexOf(target - nums[index], index + 1)
+//         if (j != -1) {
+//             tempArr = [index, j]
+//             break
+//         }
+//         index++
+//     }
+//     return tempArr
+// };
+
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-    let tempArr = []
-    let numLen = nums.length
-    let index = 0;
-    while (index < numLen) {
-        let j = nums.indexOf(target - nums[index], index + 1)
-        if (j != -1) {
-            tempArr = [index, j]
-            break
-        }
-        index++
+  let map = {}
+  for (let i = 0; i < nums.length; i++) {
+    const element = nums[i];
+    const value = target - element
+    // 索引大于等于0
+    if (map[value]>=0) {
+      return [map[value], i]
+    } else {
+      map[element] = i
     }
-    return tempArr
+  }
+  return []
 };
 
 
-var nums = [1, 3, 58, 72];
-var target = 73;
+var nums = [2, 7, 11, 15];
+var target = 9;
 console.log(twoSum(nums, target))
 
 
