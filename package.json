@@ -4,7 +4,7 @@
   "description": "leetcode-exercise",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./test --watch"
+    "test": "jest ./test --watchAll"
   },
   "keywords": [
     "leetcode"
