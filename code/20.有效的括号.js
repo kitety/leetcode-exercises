@@ -56,12 +56,40 @@
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function(s) {
-  while (s.indexOf("{}") > -1 || s.indexOf("[]") > -1 || s.indexOf("()") > -1) {
-    s = s.replace("{}", "");
-    s = s.replace("[]", "");
-    s = s.replace("()", "");
+
+// var isValid = function (s) {
+//   while (s.indexOf('{}') > -1 || s.indexOf('[]') > -1 || s.indexOf('()') > -1) {
+//     s = s.replace('{}', '')
+//     s = s.replace('[]', '')
+//     s = s.replace('()', '')
+//   }
+//   return s === ''
+// }
+
+var isValid = function (s) {
+  if (s.length % 2 === 1) { return false }
+  const stack = []
+  const tmp = {
+    '}': '{',
+    ')': '(',
+    ']': '['
   }
-  return s === "";
-};
-// console.log(isValid("()"));
+  for (let i = 0; i < s.length; i++) {
+    const ele = s[i]
+    if (['{', '[', '('].includes(ele)) {
+      stack.push(ele)
+    } else {
+      const t = stack[stack.length - 1]
+      if (t === tmp[ele]) {
+        stack.pop()
+      } else {
+        return false
+      }
+    }
+  }
+  return stack.length === 0
+}
+isValid('()')
+// @lc code=end
+
+// export default isValid
