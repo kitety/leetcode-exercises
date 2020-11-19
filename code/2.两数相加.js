@@ -42,28 +42,32 @@
  * @return {ListNode}
  */
 var addTwoNumbers = function (l1, l2) {
-  // 遍历链表
-  let l3 = new ListNode(0)
-  let p1 = l1// 指针
-  let p2 = l2// 指针
-  let p3 = l3
-  let carry = 0// 十位
+  // 遍历链表 空的
+  let l3 = new ListNode(0);
+  let p1 = l1; // 指针
+  let p2 = l2; // 指针
+  let p3 = l3;
+  let carry = 0; // 十位
   while (p1 || p2) {
     // 获取值
-    let v1 = p1 ? p1.val : 0
-    let v2 = p2 ? p2.val : 0
+    let v1 = p1 ? p1.val : 0;
+    let v2 = p2 ? p2.val : 0;
     // 加十位
-    let val = v1 + v2 + carry
-    carry = Math.floor(val / 10)
-    p3.next = new ListNode(val % 10)
+    let val = v1 + v2 + carry;
+    carry = Math.floor(val / 10);
+    p3.next = new ListNode(val % 10);
     // 移动
-    if (p1) { p1 = p1.next }
-    if (p2) { p2 = p1.next }
-    p3 = p3.next
+    if (p1) {
+      p1 = p1.next;
+    }
+    if (p2) {
+      p2 = p2.next;
+    }
+    p3 = p3.next;
   }
   if (carry) {
-    p3.next = new ListNode(carry)
+    p3.next = new ListNode(carry);
   }
-  return l3
-}
+  return l3.next;
+};
 // @lc code=end
