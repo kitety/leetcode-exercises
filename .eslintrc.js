@@ -1,7 +1,8 @@
 module.exports = {
-  "extends": ["standard", "plugin:jest/recommended"],
+  extends: ["standard", "plugin:jest/recommended"],
   rules: {
-    'no-irregular-whitespace': 0,
-    'no-unused-vars': 0,
-  }
+    "no-irregular-whitespace": 0,
+    "no-unused-vars": 0,
+    "comma-danger": 0,
+  },
 };
