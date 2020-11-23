@@ -66,21 +66,24 @@
 //   return s === ''
 // }
 
+
+// 时间on 空间on==stack
 var isValid = function (s) {
-  if (s.length % 2 === 1) { return false }
-  const stack = []
-  const tmp = {
-    '}': '{',
-    ')': '(',
-    ']': '['
+  if (s.length % 2 === 1) {
+    return false
   }
+  const stack = []
+  const map = new Map()
+  map.set("{", "}")
+  map.set("(", ")")
+  map.set("[", "]")
   for (let i = 0; i < s.length; i++) {
     const ele = s[i]
-    if (['{', '[', '('].includes(ele)) {
+    if (map.has(ele)) {
       stack.push(ele)
     } else {
       const t = stack[stack.length - 1]
-      if (t === tmp[ele]) {
+      if (ele === map.get(t)) {
         stack.pop()
       } else {
         return false
@@ -89,7 +92,29 @@ var isValid = function (s) {
   }
   return stack.length === 0
 }
-isValid('()')
+// var isValid = function (s) {
+//   if (s.length % 2 === 1) { return false }
+//   const stack = []
+//   const tmp = {
+//     '}': '{',
+//     ')': '(',
+//     ']': '['
+//   }
+//   for (let i = 0; i < s.length; i++) {
+//     const ele = s[i]
+//     if (['{', '[', '('].includes(ele)) {
+//       stack.push(ele)
+//     } else {
+//       const t = stack[stack.length - 1]
+//       if (t === tmp[ele]) {
+//         stack.pop()
+//       } else {
+//         return false
+//       }
+//     }
+//   }
+//   return stack.length === 0
+// }
 // @lc code=end
 
 // export default isValid
