@@ -4,8 +4,28 @@ const bt = require('./bt')
 
 const postOrder = root => {
   if (!root) return
-  postOrder(root.left)
-  postOrder(root.right)
-  console.log(root.val)
+  const stack = [root]
+  const outputStack = []
+  while (stack.length) {
+    const n = stack.pop()
+    outputStack.push(n)
+    if (n.left) {
+      stack.push(n.left)
+    }
+    // 后进先出
+    if (n.right) {
+      stack.push(n.right)
+    }
+  }
+  while (outputStack.length) {
+
+    console.log(outputStack.pop().val);
+  }
 }
+// const postOrder = root => {
+//   if (!root) return
+//   postOrder(root.left)
+//   postOrder(root.right)
+//   console.log(root.val)
+// }
 postOrder(bt)
