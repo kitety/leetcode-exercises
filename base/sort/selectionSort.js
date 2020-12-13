@@ -1,3 +1,4 @@
+// 选择
 Array.prototype.selectionSort = function () {
   // this 为数组
   for (let i = 0; i < this.length - 1; i++) {

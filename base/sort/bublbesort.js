@@ -1,4 +1,4 @@
-
+// 冒泡
 // 时间 on2 
 Array.prototype.bubbleSort = function () {
   // this 为数组
