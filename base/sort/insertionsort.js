@@ -6,7 +6,7 @@ Array.prototype.insertionSort = function () {
     const temp = this[i]
     let j = i
     while (j > 0) {
-      // 前面的数比当前的小 就交换
+      // 前面的数比当前的大 就交换
       if (this[j - 1] > temp) {
         this[j] = this[j - 1]
       } else {

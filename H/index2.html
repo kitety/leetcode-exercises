@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>代理模式</title>
+</head>
+
+<body>
+  <div class="animation">动画元素</div>
+
+  <script>
+    window.onload = function () {
+      var myImage = (function () {
+        var imgNode = document.createElement("img");
+        document.body.appendChild(imgNode);
+        return {
+          setSrc: function (src) {
+            imgNode.src = src;
+          }
+        }
+      })();
+      console.log('myImage: ', myImage);
+      // 代理模式
+      var ProxyImage = (function () {
+        var img = new Image();
+        img.onload = function () {
+          console.log('this: ', this);
+          myImage.setSrc(this.src);
+        };
+        return {
+          setSrc: function (src) {
+            myImage.setSrc("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603709264332&di=f6f8e48c1c88bf640aac9899df98a97c&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_mini%2Cc_zoom%2Cw_640%2Fimages%2F20171107%2F643ceb1031394c5887d3509b31878c52.gif");
+            setTimeout(() => {
+              img.src = src;
+            }, 3000);
+          }
+        }
+      })();
+      // 调用方式
+      ProxyImage.setSrc("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3592308877,3684082784&fm=26&gp=0.jpg");
+    };
+  </script>
+</body>
+
+</html>
