@@ -9,7 +9,7 @@ const json = {
   },
 };
 
-const path = ["a", "b", "c"];
+const path = [ "d", "e"];
 let p = json;
 path.forEach((k) => {
   p = p[k];
