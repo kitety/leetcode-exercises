@@ -29,7 +29,7 @@ for (const i of myset.values()) {
   console.log(i)
 }
 // key value是一样的
-console.log("=============")
+console.log("=============entries")
 for (const i of myset.entries()) {
   console.log(i)
 }

@@ -15,7 +15,10 @@ var lengthOfLongestSubstring = function (s) {
   const map = new Map()
   for (let r = 0; r < s.length; r++) {
     const element = s[r]
+    // 有这个字符，就是重复字符
+    // 并且要在l和r之间
     if (map.has(element) && map.get(element) >= l) {
+      // 移动到下一位
       l = map.get(element) + 1
     }
     res = Math.max(res, r - l + 1)

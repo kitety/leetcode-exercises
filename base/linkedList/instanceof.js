@@ -11,4 +11,4 @@ const instanceOf = (a, b) => {
   return false;
 };
 
-console.log(1);
+console.log(instanceOf([], Object));

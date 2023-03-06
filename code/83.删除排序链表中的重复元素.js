@@ -24,9 +24,9 @@ var deleteDuplicates = function (head) {
   // 当前元素和下一个元素有值
   while (p && p.next) {
     if (p.val === p.next.val) {
+      // 相同才删除
       p.next = p.next.next;
     } else {
-      // 不同才删除
       p = p.next;
     }
   }

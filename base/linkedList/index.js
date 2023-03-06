@@ -14,6 +14,7 @@ while (p) {
   p = p.next
 }
 
+// 都是改变next指针
 // 插入
 const e = { val: 'e' }
 c.next = e

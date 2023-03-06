@@ -65,6 +65,7 @@ var addTwoNumbers = function (l1, l2) {
     }
     p3 = p3.next;
   }
+  // 最后的一位
   if (carry) {
     p3.next = new ListNode(carry);
   }

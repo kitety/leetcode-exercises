@@ -24,9 +24,9 @@ var intersection = function (nums1, nums2) {
   nums1.forEach((item) => {
     map.set(item, true)
   })
-  const res=[]
-  nums2.forEach(item=>{
-    if(map.has(item)){
+  const res = []
+  nums2.forEach(item => {
+    if (map.has(item)) {
       res.push(item)
       map.delete(item)
     }
