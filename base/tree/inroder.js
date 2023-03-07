@@ -11,15 +11,17 @@ const inOrder = root => {
       stack.push(p)
       p = p.left
     }
+    // 访问
     let n = stack.pop()
     console.log('n: ', n.val)
+    // 这里循环
     p = n.right
   }
 }
-// const inOrder = root => {
-//   if (!root) return
-//   inOrder(root.left)
-//   console.log(root.val)
-//   inOrder(root.right)
-// }
+const inOrder1 = root => {
+  if (!root) return
+  inOrder1(root.left)
+  console.log(root.val)
+  inOrder1(root.right)
+}
 inOrder(bt)

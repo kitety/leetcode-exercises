@@ -17,10 +17,11 @@ const preOrder = root => {
     }
   }
 }
-// const preOrder = root => {
-//   if (!root) return
-//   console.log(root.val)
-//   preOrder(root.left)
-//   preOrder(root.right)
-// }
+// 递归形式
+const preOrder1 = root => {
+  if (!root) return
+  console.log(root.val)
+  preOrder1(root.left)
+  preOrder1(root.right)
+}
 preOrder(bt)
