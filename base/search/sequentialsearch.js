@@ -1,6 +1,7 @@
 // 顺序搜索
 
 /* eslint-disable no-extend-native */
+//  on
 Array.prototype.sequentialSearch = function (item) {
   for (let i = 0; i < this.length; i++) {
     const element = this[i];

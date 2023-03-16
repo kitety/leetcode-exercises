@@ -19,3 +19,4 @@ Array.prototype.selectionSort = function () {
 const arr = [8, 7, 8, 2, 3, 6]
 console.log("arr: ", arr)
 console.log("arr.selectionSort(): ", arr.selectionSort())
+

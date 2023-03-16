@@ -99,7 +99,7 @@ var topKFrequent = function (nums, k) {
   return h.heap.map((item) => item.key)
 }
 // 时间 o n*logn  空间
-// var topKFrequent = function (nums, k) {
+// var topKFrequent1 = function (nums, k) {
 //   const map = new Map()
 //   nums.forEach((item) => {
 //     map.set(item, map.get(item) ? map.get(item) + 1 : 1)
@@ -109,4 +109,5 @@ var topKFrequent = function (nums, k) {
 //   const c = list.sort((a, b) => b[1] - a[1]).map((item) => item[0])
 //   return c.slice(0, k)
 // }
+// topKFrequent1([1, 1, 1, 2, 2, 3])
 // @lc code=end

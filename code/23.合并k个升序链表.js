@@ -99,18 +99,22 @@ var mergeKLists = function (lists) {
   let p = res
   lists.forEach(function (l) {
     if (l) {
+      // 链表的头
       h.insert(l)
     }
   })
   while (h.size()) {
     const n = h.pop()
     p.next = n
+    // 往下走一步
     p = p.next
     if (n.next) {
       // 1-4-5=> 4-5  用了1  就该用4 5
       h.insert(n.next)
     }
   }
+  //返回的是第一个，但是不是初始值
   return res.next
 }
 // @lc code=end
+r
