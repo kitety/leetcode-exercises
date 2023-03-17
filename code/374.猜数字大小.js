@@ -80,23 +80,42 @@
  * var guess = function(num) {}
  */
 
-/**
- * @param {number} n
- * @return {number}
- */
-var guessNumber = function (n) {
-  let low = 1
-  let high = n
+// /**
+//  * @param {number} n
+//  * @return {number}
+//  */
+// var guessNumber = function (n) {
+//   let low = 1
+//   let high = n
 
-  while (low <= high) {
+//   while (low <= high) {
+//     const mid = Math.floor((low + high) / 2)
+//     const res = guess(mid)
+//     if (res === 0) { return mid } else if (res === 1) {
+//       low = mid + 1
+//     } else {
+//       high = mid - 1
+//     }
+//   }
+//   return -1
+// }
+// logN 时间空间
+const guessNumber = (n) => {
+  const rec = (low, high) => {
+    if (low > high) {
+      return -1
+    }
     const mid = Math.floor((low + high) / 2)
-    const res = guess(mid)
-    if (res === 0) { return mid } else if (res === 1) {
-      low = mid + 1
+    const res = guess(mid);
+    if (res === 0) {
+      return mid
+    } else if (res === 1) {
+      return rec(mid + 1, high)
     } else {
-      high = mid - 1
+      return rec(low, mid - 1)
     }
   }
-  return -1
+  return rec(1, n)
+
 }
 // @lc code=end
