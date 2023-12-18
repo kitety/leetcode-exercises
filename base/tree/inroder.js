@@ -24,4 +24,22 @@ const inOrder1 = root => {
   console.log(root.val)
   inOrder1(root.right)
 }
-inOrder(bt)
+// inOrder(bt)
+
+const inOrder2 = root => {
+  if (!root) return
+  const stack = [];
+  let p = root
+  while (p || stack.length) {
+    while (p) {
+      stack.push(p)
+      p = p.left
+    }
+    const n = stack.pop()
+    console.log('n.val', n.val)
+    p = n.right
+  }
+
+}
+
+inOrder2(bt)

@@ -17,3 +17,21 @@ while (q.length) {
         }
     });
 }
+
+const queue = [2];
+const visitedSet = new Set()
+visitedSet.add(2)
+
+const bfs = () => {
+    while (queue.length) {
+        const node = queue.shift()
+        console.log('node', node)
+        graph[node].forEach(element => {
+            if (!visitedSet.has(element)) {
+                queue.push(element)
+                visitedSet.add(element)
+            }
+        })
+    }
+}
+bfs()

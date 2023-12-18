@@ -25,3 +25,23 @@ const preOrder1 = root => {
   preOrder1(root.right)
 }
 preOrder(bt)
+
+const preOrder2 = root => {
+  if (!root) return;
+  const stack = [root]
+
+  while (stack.length) {
+    const n = stack.pop()
+    console.log('n.val', n.val)
+    if (n.right) {
+      stack.push(n.right)
+    }
+
+    if (n.left) {
+      stack.push(n.left)
+    }
+  }
+
+
+}
+preOrder2(bt)

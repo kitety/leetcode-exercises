@@ -44,3 +44,21 @@ console.log('arr: ', arr)
 console.log('arr.insertionSort(): ', arr.insertionSort())
 console.log('arr.insertionSort(): ', [11, 7, 8, 2, 3, 6].insertionSort2())
 
+Array.prototype.insertionSort3 = function () {
+  for (let i = 1; i < this.length; i++) {
+    const temp = this[i]
+    let j = i;// 第二个数的下标
+    while (j > 0) {
+      if (this[j - 1] > temp) {
+        this[j] = this[j - 1]
+      } else {
+        break;
+      }
+      j--;
+    }
+    this[j] = temp
+  }
+
+
+  return this
+}

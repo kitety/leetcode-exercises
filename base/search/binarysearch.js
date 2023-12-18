@@ -28,7 +28,7 @@ Array.prototype.binarySearch2 = function (item) {
     const mid = Math.floor((low + high) / 2)
     const element = this[mid]
     if (element < item) {
-      low = min + 1
+      low = mid + 1
     } else if (element > item) {
       high = mid - 1
     } else {
@@ -40,3 +40,20 @@ Array.prototype.binarySearch2 = function (item) {
 }
 const arr2 = [-69, 2, 3, 4, 58, 110, 145, 178, 196]
 console.log('arr.binarySearch (): ', arr2.binarySearch(110))
+// 前提是有序的数组
+Array.prototype.binarySearch3 = function (item) {
+  let low = 0;
+  let high = this.length - 1
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2)
+    const element = this[mid]
+    if (element < item) {
+      low = mid + 1
+    } else if (element > item) {
+      high = mid - 1
+    } else {
+      return mid
+    }
+  }
+  return -1;
+}

@@ -92,3 +92,40 @@ var minWindow = function (s, t) {
 
 }
 // @lc code=end
+var minWindow1 = function (s, t) {
+  let r = 0;
+  let l = 0;
+  let res = ''
+  const need = new Map()
+  // 需要的字符和个数
+  for (const c of t) {
+    map.set(c, need.has(c) ? need.get(c) + 1 : 1)
+  }
+  let needType = need.size
+  while (r < s.length) {
+    const c = s[r]
+    if (need.has(c)) {
+      need.set(c, need.get(c) - 1)
+      if (need.get(c) === 0) {
+        needType--
+      }
+    }
+    while (needType === 0) {
+      const newRes = s.substring(l, r + 1)
+      if (!res || newRes.length < res.length) {
+        res = newRes
+      }
+      const c2 = s[1]
+      if (need.has(c2)) {
+        need.set(c2, need.get(c2) + 1)
+        if (need.get(c) === 1) {
+          needType++
+        }
+      }
+      l++
+    }
+    r++
+  }
+  return res
+
+}

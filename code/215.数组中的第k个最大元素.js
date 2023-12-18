@@ -83,7 +83,7 @@ var findKthLargest = function (nums, k) {
   nums.forEach((item) => {
     h.insert(item)
     if (h.size() > k) {
-      // 删除对顶
+      // 删除堆顶
       h.pop()
     }
   })

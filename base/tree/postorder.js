@@ -29,3 +29,23 @@ const postOrder = root => {
 //   console.log(root.val)
 // }
 postOrder(bt)
+const postOrder2 = root => {
+  if (!root) return
+  const stack = [root]
+  const outputStack = []
+
+  while (stack.length) {
+    const n = stack.pop()
+    outputStack.push(n)
+    if (n.left) {
+      stack.push(n.left)
+    }
+    if (n.right) {
+      stack.push(n.right)
+    }
+  }
+  while (outputStack.length) {
+    const n = outputStack.pop()
+    console.log('n.val', n.val)
+  }
+}

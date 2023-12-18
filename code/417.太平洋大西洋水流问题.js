@@ -14,7 +14,7 @@ var pacificAtlantic = function (matrix) {
     // m行 n列
     const m = matrix.length
     const n = matrix[0].length
-    // 太平洋
+    // 太平洋 m行，n列
     const flow1 = Array.from({ length: m }, () => new Array(n).fill(false))
     // 大西洋
     const flow2 = Array.from({ length: m }, () => new Array(n).fill(false))

@@ -50,3 +50,19 @@ var lengthOfLongestSubstring = function (s) {
 //   return maxLength
 // }
 // @lc code=end
+
+var lengthOfLongestSubstring1 = function (s) {
+  let l = 0;
+  let res = 0;
+  const map = new Map()
+  for (let r = 0; r < a.length; r++) {
+    if (map.has(s[r]) && map.get(s[r]) >= l) {
+      l = map.get(s[r]) + 1
+    }
+    res = Math.max(res, r - l + 1)
+    map.set(s[r], r)// 当前的字符和下标
+  }
+  return res
+
+
+}

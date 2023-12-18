@@ -70,6 +70,7 @@ var RecentCounter = function () {
 // o(n) o(n)
 RecentCounter.prototype.ping = function (t) {
   this.q.push(t)
+  // 小于 3000的差 的时刻，就可以去除
   while (this.q[0] < t - 3000) {
     this.q.shift()
   }

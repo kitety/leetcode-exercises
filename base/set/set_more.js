@@ -11,7 +11,7 @@ console.log(myset.has(11))
 console.log(myset.has(a))
 
 myset.delete(1)
-myset.delete(a)
+// myset.delete(a)
 console.log(myset)
 // size 获取大小
 console.log("=============")

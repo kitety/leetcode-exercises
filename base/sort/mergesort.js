@@ -54,3 +54,27 @@ Array.prototype.mergeSort2 = function () {
 const arr = [11, 7, 8, 2, 3, 6]
 console.log('arr: ', arr)
 console.log('arr.mergeSort(): ', arr.mergeSort2())
+
+const mergeS = (arr) => {
+  const rec = (array) => {
+    if (array.length <= 1) return array
+    const mid = Math.floor(array.length / 2)
+    const left = array.slice(0, mid)
+    const right = array.slice(mid)
+    const orderLeft = rec(left);
+    const orderRight = rec(right)
+    const res = []
+    while (orderLeft.length || orderRight.length) {
+      if (orderLeft.length && orderRight.length) {
+        res.push(orderLeft[0] < orderRight[0] ? orderLeft.shift() : orderRight.shift())
+      } else if (orderLeft.length) {
+        res.push(orderLeft.shift())
+      } else if (orderRight.length) {
+        res.push(orderRight.shift())
+      }
+    }
+    return res
+  }
+  return rec(arr)
+}
+console.log('first', mergeS([11, 7, 8, 2, 3, 6]))
